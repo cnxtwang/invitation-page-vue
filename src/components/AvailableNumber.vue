@@ -7,19 +7,13 @@
     name: 'available-number',
     data() {
       return {
-        count: 0
+        shared: store
       }
     },
-    created() {
-      Event.$on('setAvailableNumber', () => {
-        let count = 0
-        store.users.forEach(user => {
-          if(!user.checked) {
-            count ++
-          }
-        })
-        this.count = count
-      })
+    computed: {
+      count() {
+        return this.shared.users.filter(user => !user.checked).length
+      }
     }
   }
 </script>

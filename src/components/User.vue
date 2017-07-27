@@ -12,7 +12,6 @@
         v-model="user.checked"
         :id="'checkbox'+user.name"
         :value="user.name"
-        v-on:change="onSelectedUser"
       >
       <label :for="'checkbox'+user.name"></label>
     </div>
@@ -22,12 +21,7 @@
 <script>
   export default {
     name: 'user',
-    props: ['user'],
-    methods: {
-      onSelectedUser: () => {
-        Event.$emit('onSelectedUser')
-      }
-    }
+    props: ['user']
   }
 </script>
 

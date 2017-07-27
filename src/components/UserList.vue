@@ -1,5 +1,5 @@
 <template>
-  <div @click="calcAvailableNumber">
+  <div>
     <user
         v-for="user in shared.users"
         :user="user"
@@ -23,14 +23,8 @@
     mounted() {
       axios.get('/mock/user.json')
         .then(response => {
-          this.shared.users = response.data
-          this.calcAvailableNumber()
+          this.$set(this.shared, 'users', response.data)
         })
-    },
-    methods: {
-      calcAvailableNumber() {
-        Event.$emit('setAvailableNumber')
-      }
     }
   }
 </script>
