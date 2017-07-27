@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" placeholder="Send invite by e-mail">
+    <input placeholder="Send invite by e-mail">
     <button
         :disabled="isDisabled"
         :class="{disabled: isDisabled}"
